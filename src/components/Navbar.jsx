@@ -12,6 +12,8 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Link from '@mui/material/Link';
+
 
 
 
@@ -134,40 +136,47 @@ function ResponsiveAppBar() {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
           
+             <Button
+               
+                onClick={handleCloseNavMenu}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              > <Link href='/main'>
+                Main</Link>
+              </Button>
               <Button
                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Main
+              > <Link href='/moviedetail'>
+              Movie-Detail</Link>
+                
               </Button>
               <Button
                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Movie-Detail
+                <Link href='/aboutus'>
+                About-Us</Link>
+                
               </Button>
               <Button
                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                About-Us
+                <Link href='/'>
+                Login</Link>
+                
               </Button>
               <Button
                
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                Login
-              </Button>
-              <Button
+                <Link href='/register'>
+                 Register</Link>
                
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
-                Register
               </Button>
            
           </Box>

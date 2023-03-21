@@ -1,41 +1,61 @@
-import React from 'react'
+import React from "react";
+import Carousel from "react-material-ui-carousel";
+import { Paper, Button } from "@mui/material";
 
-const Login = () => {
+import ImageListItem from "@mui/material/ImageListItem";
+
+const Login = (props) => {
+  var items = [
+    {
+      name: "Random Name #1",
+      description: "Probably the most random thing you have ever seen!",
+      image: "https://picsum.photos/100",
+    },
+    {
+      name: "Random Name #2",
+      description: "Hello World!",
+      image: "https://picsum.photos/200",
+    },
+    {
+      name: "Random Name #3",
+      description: "Probably the most random thing you have ever seen!",
+      image: "https://picsum.photos/500",
+    },
+    {
+      name: "Random Name #4",
+      description: "Probably the most random thing you have ever seen!",
+      image: "https://picsum.photos/300",
+    },
+  ];
+
   return (
-    
+    <Carousel>
+      {items.map((item, i) => (
+        <Item key={i} item={item} />
+      ))}
+    </Carousel>
+  );
+};
 
-<div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
-    <ol className="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-    </ol>
-    <div className="carousel-inner">
-        <div className="carousel-item active">
-            <img className="d-block w-100" src="https://placeimg.com/1080/500/animals" alt="First slide"/>
-            <div className="carousel-caption d-none d-md-block">
-                <h5>My Caption Title (1st Image)</h5>
-                <p>The whole caption will only show up if the screen is at least medium size.</p>
-            </div>
-        </div>
-        <div className="carousel-item">
-            <img className="d-block w-100" src="https://placeimg.com/1080/500/arch" alt="Second slide"/>
-        </div>
-        <div className="carousel-item">
-            <img className="d-block w-100" src="https://placeimg.com/1080/500/nature" alt="Third slide"/>
-        </div>
-    </div>
-    <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span className="sr-only">Previous</span>
-    </a>
-    <a className="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span className="carousel-control-next-icon" aria-hidden="true"></span>
-        <span className="sr-only">Next</span>
-    </a>
-</div>
-    
-  )
+function Item(props) {
+  return (
+    <Paper>
+      <h2>{props.item.name}</h2>
+      <p>{props.item.description}</p>
+
+      <ImageListItem>
+        <img
+          src={`${props.item.image} ?w=164&h=164&fit=crop&auto=format`}
+          srcSet={`${props.item.image}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+          alt={props.name}
+          style={{height:"700px" }}
+          loading="lazy"
+        />
+      </ImageListItem>
+
+      <Button className="CheckButton">Check it out!</Button>
+    </Paper>
+  );
 }
 
 export default Login;
